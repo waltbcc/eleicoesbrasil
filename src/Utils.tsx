@@ -10,10 +10,11 @@ function formatarDataLongaBR(data = new Date()) {
     const formatada = formatador.format(data);
 
     // Garantir mês em minúsculas
+    // Usando _ para indicar que o primeiro parâmetro não será usado
     return formatada.replace(
         / de ([A-Za-zÀ-ÖØ-öø-ÿ]+)/,
-        (match, mes) => ` de ${mes.toLowerCase()}`
+        (_, mes) => ` de ${mes.toLowerCase()}`
     );
 }
 
-export default formatarDataLongaBR;  
+export default formatarDataLongaBR;
