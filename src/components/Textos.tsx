@@ -1,5 +1,6 @@
 import type { ReactElement } from "react";
 
+
 interface AuditoriaItem {
   titulo_1?: string
   texto_1?: string
