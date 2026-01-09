@@ -1,11 +1,15 @@
-import type { JSX } from 'react'
+import type { ReactElement } from 'react'
 
-function NestaEdicao(destaques: string | any[]) {
+interface NestaEdicaoProps {
+  auditoria: any[] | null
+}
+
+function NestaEdicao({ auditoria }: NestaEdicaoProps) {
   // Dentro do seu componente:
-  const blocks: JSX.Element[] = []
+  const blocks: ReactElement[] = []
 
-  if (destaques && destaques.length > 0) {
-    const item = destaques[0] // Pegando o primeiro item enviado pelo backend
+  if (auditoria && auditoria.length > 0) {
+    const item = auditoria[0] // Pegando o primeiro item enviado pelo backend
 
     for (let count = 1; count <= 4; count++) {
       const titulo = item[`destaque_${count}`]
