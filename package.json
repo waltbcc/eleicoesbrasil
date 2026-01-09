@@ -4,13 +4,9 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite && npm run dev:backend",
-    // "dev:backend": "cd backend && npm run start",
+    "dev": "vite",
     "build": "tsc -b && vite build && npm run build:backend",
-    // "build:backend": "cd backend && npm run start",
     "lint": "eslint . && npm run lint:backend",
-    // "lint:backend": "cd backend && npm run lint",
-    // "install:all": "npm install && cd backend && npm install",
     "install:all": "npm install",
     "preview": "vite preview"
   },
