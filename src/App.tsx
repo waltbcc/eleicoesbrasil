@@ -62,9 +62,9 @@ function App() {
 
     return (
         <>
-            {Header("Eleições Brasil - 2026", formatarDataLongaBR(new Date()))}
+            <Header titulo="Eleições Brasil - 2026" data={formatarDataLongaBR(new Date())} />
 
-            {Main(auditoria, capas)}
+            <Main auditoria={auditoria} capas={capas} />
 
             <Footer />
         </>
