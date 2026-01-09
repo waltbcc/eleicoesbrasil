@@ -8,24 +8,30 @@ interface CapaItem {
   relevancia: number
 }
 
+interface AuditoriaItem {
+  [key: string]: any
+}
+
 interface MainProps {
-  auditoria: any // Você pode substituir 'any' pelo tipo correto quando souber
+  auditoria: AuditoriaItem[] | null
   capas: CapaItem[] | null
 }
 
 function Main({ auditoria, capas }: MainProps) {
+
   return (
-    <main className='p-4'>
-      <div className='mx-auto max-w-7xl flex gap-10 flex-col md:flex-row'>
-        <section className='max-w-sm w-full h-full flex flex-col gap-10'>
+    <main className="p-4">
+      <div className="mx-auto max-w-7xl flex gap-10 flex-col md:flex-row">
+        <section className="max-w-sm w-full h-full flex flex-col gap-10">
           <NestaEdicao auditoria={auditoria} />
           <CapaJornais capas={capas} />
         </section>
 
         <Textos auditoria={auditoria} />
+
       </div>
     </main>
   )
 }
 
-export default Main
+export default Main;

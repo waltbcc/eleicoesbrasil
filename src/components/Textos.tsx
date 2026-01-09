@@ -1,4 +1,4 @@
-import { ReactElement } from 'react'
+import type { ReactElement } from "react";
 
 interface AuditoriaItem {
   titulo_1?: string
