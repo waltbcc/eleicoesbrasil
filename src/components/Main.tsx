@@ -1,6 +1,6 @@
-import NestaEdicao from './NestaEdicao.tsx'
-import Textos from './Textos.tsx'
-import CapaJornais from './CapaJornais.tsx'
+import NestaEdicao from './NestaEdicao'
+import Textos from './Textos'
+import CapaJornais from './CapaJornais'
 
 interface CapaItem {
   codimagem: number
