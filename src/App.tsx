@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import axios from 'axios';
+import axios, { AxiosError } from 'axios';
 import './App.css';
 
 import Header from "./components/Header";
@@ -7,10 +7,20 @@ import Main from "./components/Main";
 import Footer from "./components/Footer";
 import formatarDataLongaBR from "./Utils";
 
-function App() {
+interface AuditoriaRow {
+    // Adicione as propriedades da auditoria aqui
+    [key: string]: any;
+}
 
-    const [auditoria, setAuditoria] = useState(null);
-    const [capas, setCapas] = useState(null);
+interface CapaRow {
+    caminho: string;
+    codimagem: string;
+    relevancia: number;
+}
+
+function App() {
+    const [auditoria, setAuditoria] = useState<AuditoriaRow[] | null>(null);
+    const [capas, setCapas] = useState<CapaRow[] | null>(null);
 
     useEffect(() => {
         const fetchAuditoria = async () => {
@@ -19,19 +29,17 @@ function App() {
                 console.log("Auditoria:", response.data.rows);
                 setAuditoria(response.data.rows);
             } catch (error) {
-                console.log(
-                    'Failed to request auditoria: ',
-                    (error.response ? error.response.data.message : '')
-                );
-                setAuditoria(
-                    'Failed to request auditoria: ',
-                    (error.response ? error.response.data.message : '')
-                );
+                const errorMessage = error instanceof AxiosError 
+                    ? error.response?.data?.message || error.message
+                    : 'Erro desconhecido';
+                
+                console.log('Failed to request auditoria:', errorMessage);
+                setAuditoria(null);
             }
         };
 
         fetchAuditoria();
-    }, []); // <-- executa apenas 1 vez
+    }, []);
 
     useEffect(() => {
         const fetchCapas = async () => {
@@ -40,19 +48,17 @@ function App() {
                 console.log("Capas:", response.data.rows);
                 setCapas(response.data.rows);
             } catch (error) {
-                console.log(
-                    'Failed to request capas: ',
-                    (error.response ? error.response.data.message : '')
-                );
-                setCapas(
-                    'Failed to request capas: ',
-                    (error.response ? error.response.data.message : '')
-                );
+                const errorMessage = error instanceof AxiosError 
+                    ? error.response?.data?.message || error.message
+                    : 'Erro desconhecido';
+                
+                console.log('Failed to request capas:', errorMessage);
+                setCapas(null);
             }
         };
 
         fetchCapas();
-    }, []); // <-- executa apenas 1 vez
+    }, []);
 
     return (
         <>
