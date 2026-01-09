@@ -7,20 +7,9 @@ import Main from "./components/Main";
 import Footer from "./components/Footer";
 import formatarDataLongaBR from "./Utils";
 
-interface AuditoriaRow {
-  // Adicione as propriedades da auditoria aqui
-  [key: string]: any;
-}
-
-interface CapaRow {
-  caminho: string;
-  codimagem: number;
-  relevancia: number;
-}
-
 function App() {
-  const [auditoria, setAuditoria] = useState<AuditoriaRow[] | null>(null);
-  const [capas, setCapas] = useState<CapaRow[] | null>(null);
+  const [auditoria, setAuditoria] = useState<any[] | null>(null);
+  const [capas, setCapas] = useState<any[] | null>(null);
 
   useEffect(() => {
     const fetchAuditoria = async () => {
