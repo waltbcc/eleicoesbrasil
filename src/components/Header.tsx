@@ -1,4 +1,4 @@
-import BandeiraBrasil from "../../public/bandeira-brasil.jpg";
+import BandeiraBrasil from "../bandeira-brasil.jpg";
 
 interface HeaderProps {
   codacompan: string;
